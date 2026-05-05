@@ -19,4 +19,9 @@ class menu_categorie extends Model
     {
         return 'slug';
     }
+
+    public function menu()
+    {
+        return $this->hasMany(menu::class);
+    }
 }

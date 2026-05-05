@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class MenuCategorieRequest extends FormRequest
+class MenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +23,12 @@ class MenuCategorieRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'kategori_id' => 'required|exists:menu_categories,id',
             'nama' => 'required|string|max:255',
-            'slug' => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('menu_categories')->ignore($this->route('menu_categorie')?->id)
-            ],
             'deskripsi' => 'nullable|string',
-            'sort_order' => 'nullable|integer|min:0',
+            'harga' => 'required|numeric|min:0',
+            'gambar' => 'nullable|image|mimes:png,jpg,jpeg,gif,svg,webp|max:10240',
+            'tersedia' => 'boolean',
         ];
     }
 }

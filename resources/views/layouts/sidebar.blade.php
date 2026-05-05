@@ -1,6 +1,6 @@
 <!-- ===================== SIDEBAR ===================== -->
 <aside id="sidebar"
-  class="fixed top-0 left-0 h-full w-64 z-40 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shadow-xl lg:shadow-none -translate-x-full lg:translate-x-0">
+    class="fixed top-0 left-0 h-full w-64 z-40 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shadow-xl lg:shadow-none -translate-x-full lg:translate-x-0">
 
     <!-- Logo -->
     <div class="flex items-center gap-3 px-5 py-5 border-b border-slate-100 dark:border-slate-800">
@@ -89,16 +89,26 @@
             class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer text-slate-600 dark:text-slate-300 text-sm font-medium"
             data-page="users" onclick="navigate(event, 'users')">
             <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-  <!-- cangkir -->
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8h13v8a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/>
-  
-  <!-- handle -->
-  <path stroke-linecap="round" stroke-linejoin="round" d="M16 10h2a2 2 0 010 4h-2"/>
-  
-  <!-- steam -->
-  <path stroke-linecap="round" stroke-linejoin="round" d="M8 2v2M12 2v2M16 2v2"/>
-</svg>
+                <!-- cangkir -->
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8h13v8a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" />
+
+                <!-- handle -->
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 10h2a2 2 0 010 4h-2" />
+
+                <!-- steam -->
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 2v2M12 2v2M16 2v2" />
+            </svg>
             Kelola Kategori Menu
+        </a>
+
+        <a href="{{ route('admin.menu.index') }}"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer text-slate-600 dark:text-slate-300 text-sm font-medium"
+            data-page="users" onclick="navigate(event, 'users')">
+            <svg class="w-5 h-5 text-[#5C4033]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 19a2 2 0 012-2h12M4 19V5a2 2 0 012-2h12v14M4 19h16" />
+            </svg>
+            Kelola Menu
         </a>
 
         <p class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold px-3 mt-4 mb-2">Laporan & Tools

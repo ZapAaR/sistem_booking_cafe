@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuCategorieController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('rolecheck:admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
+        /* Menu Kategori */
         Route::get('/kategori', [MenuCategorieController::class, 'index'])->name('kategori.index');
         Route::get('/kategori/create', [MenuCategorieController::class, 'create'])->name('kategori.create');
         Route::post('/kategori', [MenuCategorieController::class, 'store'])->name('kategori.store');
@@ -36,6 +38,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/kategori/{menu_categorie:slug}', [MenuCategorieController::class, 'show'])->name('kategori.show');
         Route::get('/kategori/export/csv', [MenuCategorieController::class, 'exportCsv'])->name('kategori.export.csv');
         Route::get('/kategori/export/pdf', [MenuCategorieController::class, 'exportPdf'])->name('kategori.export.pdf');
+
+        /* Menu */
+        Route::get('/menu', [MenuController::class, 'index'])->name('menu.index');
+        Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
+        Route::post('/menu', [MenuController::class, 'store'])->name('menu.store');
+        Route::get('/menu/edit/{menu}', [MenuController::class, 'edit'])->name('menu.edit');
+        Route::put('/menu/{menu}', [MenuController::class, 'update'])->name('menu.update');
+        Route::delete('/menu/{menu}', [MenuController::class, 'destroy'])->name('menu.destroy');
+        Route::get('/menu/{menu}', [MenuController::class, 'show'])->name('menu.show');
+        Route::get('/menu/export/csv', [MenuController::class, 'exportCsv'])->name('menu.export.csv');
+        Route::get('/menu/export/pdf', [MenuController::class, 'exportPdf'])->name('menu.export.pdf');
     });
 
     Route::middleware('rolecheck:user')->prefix('user')->name('user.')->group(function () {

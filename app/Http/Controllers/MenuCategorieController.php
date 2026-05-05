@@ -15,7 +15,7 @@ class MenuCategorieController extends Controller
         ->when($request->search, function ($query, $search) {
             $query->where('nama', 'like', "%{$search}%");
         })
-        ->orderBy('sort_order', 'asc')->get();
+        ->orderBy('sort_order', 'asc')->paginate(5)->withQueryString();
 
         $total = menu_categorie::count();
 
@@ -100,7 +100,7 @@ class MenuCategorieController extends Controller
         };
 
         return response()->stream($callback, 200, $headers);
-        
+
     }
 
     public function exportPdf()
