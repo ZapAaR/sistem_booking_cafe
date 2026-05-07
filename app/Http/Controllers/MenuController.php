@@ -26,7 +26,7 @@ class MenuController extends Controller
         ->when($request->search, function ($query, $search) {
             $query->where('nama', 'like', "%{$search}%")
                   ->orWhere('kategori_id', 'like', "%{$search}%");
-        })->orderBy('nama')->paginate(3)->withQueryString();
+        })->orderBy('nama', 'asc')->paginate(3)->withQueryString();
 
         return view('admin.menu.index', compact('menu', 'kategori', 'totalKategori', 'totalMenu' , 'tidakTersedia', 'tersedia'));
     }

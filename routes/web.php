@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuCategorieController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
@@ -49,6 +50,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/menu/{menu}', [MenuController::class, 'show'])->name('menu.show');
         Route::get('/menu/export/csv', [MenuController::class, 'exportCsv'])->name('menu.export.csv');
         Route::get('/menu/export/pdf', [MenuController::class, 'exportPdf'])->name('menu.export.pdf');
+
+        /* Meja */
+        Route::get('/meja', [MejaController::class, 'index'])->name('meja.index');
+        Route::get('/meja/create', [MejaController::class, 'create'])->name('meja.create');
+        Route::post('/meja', [MejaController::class, 'store'])->name('meja.store');
+        Route::get('/meja/edit/{meja}', [MejaController::class, 'edit'])->name('meja.edit');
+        Route::put('/meja/{meja}', [MejaController::class, 'update'])->name('meja.update');
+        Route::delete('/meja/{meja}', [MejaController::class, 'destroy'])->name('meja.destroy');
+        Route::get('/meja/{meja}', [MejaController::class, 'show'])->name('meja.show');
+        Route::patch('/meja/toggle/{meja}', [MejaController::class, 'toggle'])->name('meja.toggle');
+        Route::get('/meja/export/pdf', [MejaController::class, 'exportPdf'])->name('meja.export.pdf');
+        Route::get('/meja/export/csv', [MejaController::class, 'exportCsv'])->name('meja.export.csv');
     });
 
     Route::middleware('rolecheck:user')->prefix('user')->name('user.')->group(function () {

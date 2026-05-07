@@ -41,7 +41,7 @@
 
         <p class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold px-3 mt-4 mb-2">Manajemen</p>
 
-        <a href="#"
+        <a href="{{ route('admin.meja.index') }}"
             class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer text-slate-600 dark:text-slate-300 text-sm font-medium"
             data-page="services" onclick="navigate(event, 'services')">
             <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
